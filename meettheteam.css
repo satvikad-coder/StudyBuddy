@@ -133,6 +133,7 @@ body {
   color: #000;
   z-index: 2;
   animation: popDown 1s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
+  font-family: Arial, sans-serif;
 }
 h3 {
   font-family: "Arial", sans-serif;
