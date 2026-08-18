@@ -115,6 +115,7 @@ body {
   background: linear-gradient(#d4ffe1, white);
   background-attachment: fixed;
   transition: background 5.6s ease;
+  font-family: "Arial", sans-serif;
 }
 
 /* TEXT */
