@@ -1,0 +1,239 @@
+body {
+  margin: 0;
+  padding-top: 100px;
+  font-family: Arial, sans-serif;
+  background-color: #e2f3e7;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(225, 225, 225, 0.114);
+  backdrop-filter: blur(12px);
+}
+.nav-right {
+  display: flex;
+  gap: 25px;
+  padding: 12px 25px;
+
+  background: rgba(232, 243, 231, 0.35);
+  backdrop-filter: blur(14px);
+  border-radius: 40px;
+  margin-right: 40px;
+}
+.logo {
+  height: 50px;
+}
+.nav-btn {
+  text-decoration: none;
+  font-weight: 600;
+  color: #000;
+  font-size: 16px;
+  padding: 5px 0;
+  transition: 0.25s ease;
+}
+.nav-btn:hover {
+  background: rgba(2, 37, 32, 0.25);
+  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  transition: 0.25s ease;
+}
+
+.text {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  z-index: -1;
+}
+.green-bg {
+  position: absolute;
+  top: 5%;
+  left: -10%;
+  width: 105%;
+  height: 150%;
+  background: #0f7e5e;
+  transform: skewX(-10deg);
+  z-index: -1;
+  opacity: 0;
+  animation: slideInLeft 1s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.title {
+  position: absolute;
+  left: 10%;
+  bottom: 20%;
+  font-size: 200px;
+  font-weight: 800;
+  color: #000;
+  z-index: -1;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  animation: popDown 1s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
+}
+
+@keyframes popDown {
+  0% {
+    transform: translateY(-150px) scale(0.8);
+  }
+  60% {
+    transform: translateY(20px) scale(1.1);
+  }
+  80% {
+    transform: translateY(-10px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-200px) skewX(-10deg);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(20px) skewX(-10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) skewX(-10deg);
+    opacity: 1;
+  }
+}
+.resourceBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  padding: 20px;
+}
+
+@media (max-width: 700px) {
+  .resourceBox {
+    grid-template-columns: 1fr;
+  }
+}
+
+.box {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 100px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: block;
+  position: relative;
+}
+
+.card-icon {
+  position: absolute;
+  top: 90px;
+  right: 60px;
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-icon2 {
+  position: absolute;
+  top: 100px;
+  right: 70px;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-icon3 {
+  position: absolute;
+  top: 60px;
+  right: 70px;
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-tag {
+  background: #0f7e5e;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-label {
+  display: inline-block;
+  background: #eaeaea;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.site-footer {
+  background: #f5f5f5;
+  padding: 80px 60px;
+  margin-top: 120px;
+  font-family: Arial, sans-serif;
+}
+.footer-top {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.footer-top h2 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.footer-btn {
+  background: #000;
+  color: #fff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.footer-btn:hover {
+  background: #333;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.footer-col p {
+  margin: 6px 0;
+  color: #444;
+  font-size: 16px;
+}
