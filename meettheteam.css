@@ -1,3 +1,9 @@
+body {
+  background: linear-gradient(#d4ffe1, white);
+  background-attachment: fixed;
+  transition: background 5.6s ease;
+  font-family: Arial, sans-serif;
+}
 /* NAVBAR */
 .navbar {
   position: fixed;
@@ -110,12 +116,6 @@
 .fade-scroll {
   opacity: 1;
   transition: opacity 0.3s ease-out;
-}
-body {
-  background: linear-gradient(#d4ffe1, white);
-  background-attachment: fixed;
-  transition: background 5.6s ease;
-  font-family: "Arial", sans-serif;
 }
 
 /* TEXT */
