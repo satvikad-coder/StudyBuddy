@@ -1,149 +1,58 @@
-<!DOCTYPE html>
+HTML: <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homepage | StudyPrep Resources</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Skip link for keyboard/screen-reader users -->
-    <a href="#main" class="skip-link">Skip to content</a>
-
     <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
       <div class="nav-left">
-        <a href="index.html" class="brand">
-          <img src="images/realLOGO.png" alt="StudyPrep Resources home" class="logo" />
-          <span class="brand-name">StudyPrep</span>
+        <a href="index.html">
+          <img src="images/realLOGO.png" alt="logo/home" class="logo" />
         </a>
       </div>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navRight">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav-right" id="navRight">
+      <div class="nav-right">
         <a href="mission.html" class="nav-btn">Mission</a>
         <a href="resources.html" class="nav-btn">Resources</a>
         <a href="meettheteam.html" class="nav-btn">About Us</a>
-        <a href="resources.html" class="nav-btn nav-cta">Start Studying</a>
       </div>
     </nav>
-
-    <main id="main">
-      <!-- HERO -->
-      <header class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow fade-scroll">100% free &bull; SHSAT &amp; SAT prep</p>
-          <h1 class="fade-scroll">
-            Study smarter.<br />
-            Stress <span class="highlight">less.</span>
-          </h1>
-          <p class="hero-sub fade-scroll">
-            StudyPrep Resources helps students get exam-ready for the SHSAT and SAT with
-            free practice tools, guided study paths, and a mascot who's always in your
-            corner. Paid picks are here too, for when you want extra reps.
-          </p>
-          <div class="hero-actions fade-scroll">
-            <a href="resources.html" class="btn btn-primary">Browse free resources</a>
-            <a href="mission.html" class="btn btn-ghost">Read our mission</a>
-          </div>
-
-          <div class="stat-row fade-scroll">
-            <div class="stat">
-              <span class="stat-num" data-target="500" data-suffix="+">0</span>
-              <span class="stat-label">Practice questions</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-target="2" data-suffix="">0</span>
-              <span class="stat-label">Exams covered</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num" data-target="100" data-suffix="%">0</span>
-              <span class="stat-label">Free to start</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-visual fade-scroll">
-          <div class="orbit" id="orbit">
-            <img src="images/realLOGO.png" alt="StudyPrep mascot" class="mascot-badge" />
-            <button class="orbit-blob blob1" data-subject="math" style="--i:0">Math</button>
-            <button class="orbit-blob blob2" data-subject="reading" style="--i:1">Reading</button>
-            <button class="orbit-blob blob3" data-subject="shsat" style="--i:2">SHSAT</button>
-            <button class="orbit-blob blob4" data-subject="sat" style="--i:3">SAT</button>
-          </div>
-          <div class="orbit-callout" id="orbitCallout">
-            <p id="orbitCalloutText">Tap a bubble to get a quick study tip.</p>
-          </div>
-        </div>
-      </header>
-
-      <!-- WHY US -->
-      <section class="section why" aria-labelledby="why-heading">
-        <h2 id="why-heading" class="fade-scroll">Why students study with us</h2>
-        <div class="card-grid">
-          <article class="card fade-scroll">
-            <div class="card-icon" aria-hidden="true">🎯</div>
-            <h3>SHSAT prep</h3>
-            <p>
-              Targeted practice sets and pacing guides built around the sections that
-              actually show up on test day.
-            </p>
-          </article>
-          <article class="card fade-scroll">
-            <div class="card-icon" aria-hidden="true">📘</div>
-            <h3>SAT toolkit</h3>
-            <p>
-              Reading, writing, and math walkthroughs that break tricky question types
-              into steps you can actually repeat.
-            </p>
-          </article>
-          <article class="card fade-scroll">
-            <div class="card-icon" aria-hidden="true">🆓</div>
-            <h3>Always free to start</h3>
-            <p>
-              Every core resource is free. We only flag paid options when they're
-              genuinely worth the extra practice.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- MASCOT SPOTLIGHT -->
-      <section class="section mascot-spotlight" aria-labelledby="mascot-heading">
-        <div class="mascot-media fade-scroll">
-          <div class="mascot-glow"></div>
-          <img src="images/realLOGO.png" alt="StudyPrep Resources mascot" class="mascot-img" />
-        </div>
-        <div class="mascot-text fade-scroll">
-          <h2 id="mascot-heading">Meet your mascot</h2>
-          <p>
-            This is your StudyPrep mascot — always in your corner while you study. He
-            shows up on every page to keep you moving, one practice set at a time.
-          </p>
-          <div class="speech-bubble">
-            <p id="mascotQuote">"Every practice question you finish is one less surprise on test day."</p>
-          </div>
-          <button class="btn btn-ghost" id="nextTipBtn">Next tip &rarr;</button>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
+    <!-- TEXT-MAIN -->
+    <div class="text">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+      <div class="title">StudyPrep Resources</div>
+    </div>
+    <h3 class="fade-scroll">Free Ways to Study for Exams.</h3>
+    <h5 class="fade-scroll">
+      Looking for a free way to study for your upcoming SHSAT or SAT? Here at
+      StudyPrep Resources, we help students prepare for their tests to get them that much
+      closer to a passing score. With us, you'll be able to let go of that pre
+      test stress as we teach you all the things you need to be prepared for
+      free! We offer many free resources on our resources page, but also suggest
+      paid ones.
+    </h5>
+    <h3 class="fade-scroll">Meet Your Mascot!</h3>
+    <img
+      src="images/realLOGO.png"
+      alt="StudyPrep Resources logo"
+      class="icons fade-scroll"
+    />
+    <h5 class="fade-scroll">
+      This is your StudyPrep Mascot! He is the mascot of the StudyPrep Resources website and
+      is always happy to help. While learning and studying for your exams, he will always be here to cheer you on! Thank you for using our
+      website. We hope to help you excel!
+    </h5>
     <footer class="site-footer">
       <div class="footer-top">
         <h2>Questions?</h2>
-        <button class="footer-btn" id="emailBtn">Send an email</button>
-        <p>&hellip;Thanks!</p>
+        <button class="footer-btn">Send an Email!</button>
+        <p>…Thanks!</p>
       </div>
       <div class="footer-columns">
         <div class="footer-col">
@@ -174,11 +83,7 @@
           <p>SnapChat</p>
         </div>
       </div>
-      <p class="footer-fine">&copy; <span id="year"></span> StudyPrep Resources.</p>
     </footer>
-
-    <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
-
     <script src="script.js"></script>
   </body>
 </html>
