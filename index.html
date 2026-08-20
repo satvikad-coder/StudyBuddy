@@ -1,172 +1,58 @@
-<!DOCTYPE html>
+HTML: <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>StudyPrep Resources — Study smarter, stress less</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <title>Homepage | StudyPrep Resources</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body data-theme="dark">
-    <a href="#main" class="skip-link">Skip to content</a>
-
+  <body>
     <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-      <a href="index.html" class="brand">
-        <img src="images/realLOGO.png" alt="StudyPrep Resources home" class="logo" />
-        <span class="brand-name">StudyPrep</span>
-      </a>
-
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navRight">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav-right" id="navRight">
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="images/realLOGO.png" alt="logo/home" class="logo" />
+        </a>
+      </div>
+      <div class="nav-right">
         <a href="mission.html" class="nav-btn">Mission</a>
         <a href="resources.html" class="nav-btn">Resources</a>
         <a href="meettheteam.html" class="nav-btn">About Us</a>
-        <a href="resources.html" class="nav-btn nav-cta">Start Studying</a>
       </div>
     </nav>
-
-    <main id="main">
-      <!-- HERO — dark, blobs pop in, text fades in -->
-      <header class="hero" data-theme-section="dark">
-        <div class="blob-field" id="blobField" aria-hidden="true">
-          <span class="blob blob1"></span>
-          <span class="blob blob2"></span>
-          <span class="blob blob3"></span>
-        </div>
-
-        <p class="eyebrow pop-in" style="--d:.05s">100% free &bull; SHSAT &amp; SAT prep</p>
-        <h1 class="blend-text pop-in" style="--d:.15s">
-          Study smarter.<br />Stress less.
-        </h1>
-        <p class="hero-sub pop-in" style="--d:.4s">
-          StudyPrep Resources is a free study hub built for students prepping for the SHSAT
-          and SAT — practice sets, guided study paths, and a mascot who's always in your
-          corner. Scroll down and the page will walk you through it.
-        </p>
-        <div class="hero-actions pop-in" style="--d:.55s">
-          <a href="resources.html" class="btn btn-primary">Browse free resources</a>
-          <a href="#facts" class="btn btn-ghost">See how it works</a>
-        </div>
-
-        <div class="scroll-cue pop-in" style="--d:.75s">
-          <span>Scroll</span>
-          <span class="scroll-line" aria-hidden="true"></span>
-        </div>
-      </header>
-
-      <!-- INTRO — the informational section, still on the dark→mid gradient -->
-      <section class="section intro" data-theme-section="dark">
-        <p class="kicker">Who we are</p>
-        <h2 class="intro-heading">
-          A free, no-pressure way to get exam-ready — built by people who
-          remember how loud test anxiety can get.
-        </h2>
-        <p class="intro-body">
-          We started StudyPrep Resources because good SHSAT and SAT prep shouldn't sit
-          behind a paywall. Every core resource on this site — practice questions, guides,
-          pacing strategies — is free. Where a paid resource is genuinely worth the money,
-          we'll tell you that too. As you keep scrolling, we'll show you a few things
-          worth knowing before test day.
-        </p>
-      </section>
-
-      <!-- FACTS — interactive: cards pop up and fade out as you scroll past them -->
-      <section class="section facts" id="facts" data-theme-section="light">
-        <p class="kicker">Worth knowing</p>
-        <h2 class="facts-heading">Things students find out the hard way. Learn them now.</h2>
-
-        <div class="fact-rail">
-          <article class="fact-card">
-            <span class="fact-index">01</span>
-            <p>
-              The SHSAT determines admission to NYC's specialized high schools on its own —
-              no interview, no essay, no GPA. The score is the whole application.
-            </p>
-          </article>
-          <article class="fact-card">
-            <span class="fact-index">02</span>
-            <p>
-              The digital SAT adapts as you go: how you perform on the first module of a
-              section decides how hard — and how valuable — the second module is.
-            </p>
-          </article>
-          <article class="fact-card">
-            <span class="fact-index">03</span>
-            <p>
-              There's no guessing penalty on the SAT anymore. An answer left blank and a
-              wrong answer cost you the same — so always fill something in.
-            </p>
-          </article>
-          <article class="fact-card">
-            <span class="fact-index">04</span>
-            <p>
-              Twenty focused minutes a day beats one three-hour cram session most students
-              try the week before. Consistency compounds; cramming just exhausts you.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- WHY US -->
-      <section class="section why" data-theme-section="light">
-        <p class="kicker">What you get</p>
-        <h2 class="section-heading">Why students study with us</h2>
-        <div class="card-grid">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">🎯</div>
-            <h3>SHSAT prep</h3>
-            <p>Targeted practice sets and pacing guides built around the sections that actually show up on test day.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">📘</div>
-            <h3>SAT toolkit</h3>
-            <p>Reading, writing, and math walkthroughs that break tricky question types into steps you can repeat.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">🆓</div>
-            <h3>Always free to start</h3>
-            <p>Every core resource is free. We only flag paid options when they're genuinely worth the extra practice.</p>
-          </article>
-        </div>
-      </section>
-
-      <!-- MASCOT SPOTLIGHT -->
-      <section class="section mascot-spotlight" data-theme-section="light">
-        <div class="mascot-media">
-          <div class="mascot-glow" aria-hidden="true"></div>
-          <img src="images/realLOGO.png" alt="StudyPrep Resources mascot" class="mascot-img" />
-        </div>
-        <div class="mascot-text">
-          <p class="kicker">Meet your mascot</p>
-          <h2 class="section-heading">He's on every page, cheering you on</h2>
-          <p>
-            While you study, he's here to keep you moving, one practice set at a time —
-            no judgment, just steady encouragement.
-          </p>
-          <div class="speech-bubble">
-            <p id="mascotQuote">"Every practice question you finish is one less surprise on test day."</p>
-          </div>
-          <button class="btn btn-ghost" id="nextTipBtn">Next tip &rarr;</button>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER — dark bookend -->
+    <!-- TEXT-MAIN -->
+    <div class="text">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+      <div class="title">StudyPrep Resources</div>
+    </div>
+    <h3 class="fade-scroll">Free Ways to Study for Exams.</h3>
+    <h5 class="fade-scroll">
+      Looking for a free way to study for your upcoming SHSAT or SAT? Here at
+      StudyPrep Resources, we help students prepare for their tests to get them that much
+      closer to a passing score. With us, you'll be able to let go of that pre
+      test stress as we teach you all the things you need to be prepared for
+      free! We offer many free resources on our resources page, but also suggest
+      paid ones.
+    </h5>
+    <h3 class="fade-scroll">Meet Your Mascot!</h3>
+    <img
+      src="images/realLOGO.png"
+      alt="StudyPrep Resources logo"
+      class="icons fade-scroll"
+    />
+    <h5 class="fade-scroll">
+      This is your StudyPrep Mascot! He is the mascot of the StudyPrep Resources website and
+      is always happy to help. While learning and studying for your exams, he will always be here to cheer you on! Thank you for using our
+      website. We hope to help you excel!
+    </h5>
     <footer class="site-footer">
       <div class="footer-top">
         <h2>Questions?</h2>
-        <button class="footer-btn" id="emailBtn">Send an email</button>
-        <p>&hellip;Thanks!</p>
+        <button class="footer-btn">Send an Email!</button>
+        <p>…Thanks!</p>
       </div>
       <div class="footer-columns">
         <div class="footer-col">
@@ -197,11 +83,7 @@
           <p>SnapChat</p>
         </div>
       </div>
-      <p class="footer-fine">&copy; <span id="year"></span> StudyPrep Resources.</p>
     </footer>
-
-    <button class="to-top" id="toTop" aria-label="Back to top">&uarr;</button>
-
     <script src="script.js"></script>
   </body>
 </html>
