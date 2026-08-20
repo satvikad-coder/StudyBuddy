@@ -20,3 +20,36 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+const left = document.querySelector(".mission-left");
+const boxes = document.querySelectorAll(".fact-box");
+const missionSection = document.querySelector(".mission-section");
+const footer = document.querySelector(".site-footer");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  /* --- LEFT SIDE FIXED UNTIL FOOTER --- */
+  const sectionBottom = missionSection.offsetTop + missionSection.offsetHeight;
+  const leftHeight = left.offsetHeight;
+
+  if (scrollY > 180 && scrollY + leftHeight + 200 < sectionBottom) {
+    left.classList.add("fixed");
+    left.classList.remove("stop");
+  } else if (scrollY + leftHeight + 200 >= sectionBottom) {
+    left.classList.remove("fixed");
+    left.classList.add("stop");
+  } else {
+    left.classList.remove("fixed");
+    left.classList.remove("stop");
+  }
+
+  /* --- REVEAL BOXES --- */
+  boxes.forEach((box) => {
+    const rect = box.getBoundingClientRect();
+    const middle = window.innerHeight * 0.65;
+
+    if (rect.top < middle) {
+      box.classList.add("visible");
+    }
+  });
+});
