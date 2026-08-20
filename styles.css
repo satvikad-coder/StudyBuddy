@@ -1,521 +1,197 @@
-/* ============================
-   TOKENS
-   ============================ */
-:root {
-  --dark-1: #061512;
-  --dark-2: #0b2e1f;
-  --mid: #146c43;
-  --light-1: #d4ffe1;
-  --white: #ffffff;
-
-  --lavender: #bac7ff;
-  --pink: #ffc8f5;
-  --cyan: #6ffffd;
-
-  --ink-on-dark: #eafff2;
-  --ink-on-dark-soft: rgba(234, 255, 242, 0.72);
-  --ink-on-light: #0b1f17;
-  --ink-on-light-soft: rgba(11, 31, 23, 0.68);
-
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-body: "Inter", "Arial", sans-serif;
-
-  --radius: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-/* The single long gradient is the whole "dark to light as you scroll" effect.
-   It's one background painted across the full page height, so scrolling
-   naturally reveals darker or lighter stops -- no JS required for this part. */
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  color: var(--ink-on-dark);
-  transition: color 0.6s ease;
-  background: linear-gradient(
-    to bottom,
-    var(--dark-1) 0%,
-    var(--dark-2) 14%,
-    var(--mid) 32%,
-    #3f9e6e 48%,
-    #9be8bd 66%,
-    var(--light-1) 82%,
-    var(--white) 100%
-  );
-}
-
-/* Theme flips driven by JS toggling body[data-theme] as sections cross the
-   viewport -- paragraph/heading color follows the gradient underneath it. */
-body[data-theme="light"] {
-  color: var(--ink-on-light);
-}
-body[data-theme="light"] .eyebrow,
-body[data-theme="light"] .kicker {
-  color: var(--mid);
-  background: rgba(20, 108, 67, 0.1);
-}
-body[data-theme="light"] .hero-sub,
-body[data-theme="light"] .intro-body,
-body[data-theme="light"] p {
-  color: var(--ink-on-light-soft);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: var(--dark-2);
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 0 0 10px 0;
-  z-index: 20;
-}
-.skip-link:focus {
-  left: 0;
-}
-
-/* ============================
-   NAVBAR — text inverts via blend mode so it stays readable on any part
-   of the gradient behind it.
-   ============================ */
+/* navbar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 16px 40px;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
-  mix-blend-mode: difference;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #fff;
-}
-.logo {
-  height: 40px;
-  filter: invert(1) grayscale(1) brightness(2);
-}
-.brand-name {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 20px;
-  color: #fff;
+  background: rgba(225, 225, 225, 0.114);
+  backdrop-filter: blur(12px);
+  z-index: 3;
 }
 .nav-right {
   display: flex;
-  align-items: center;
-  gap: 4px;
+  gap: 25px;
+  padding: 12px 25px;
+  background: rgba(232, 243, 231, 0.179);
+  backdrop-filter: blur(14px);
+  border-radius: 40px;
+  margin-right: 40px;
+}
+.logo {
+  height: 50px;
 }
 .nav-btn {
   text-decoration: none;
   font-weight: 600;
-  color: #fff;
-  font-size: 15px;
-  padding: 10px 16px;
-  border-radius: 30px;
-  transition: opacity 0.25s ease;
+  color: #000;
+  font-size: 16px;
+  padding: 5px 0;
+  transition: 0.25s ease;
 }
-.nav-btn:hover,
-.nav-btn:focus-visible {
-  opacity: 0.6;
+.nav-btn:hover {
+  background: rgba(2, 37, 32, 0.25);
+  border-radius: 50px;
 }
-.nav-cta {
-  border: 1.5px solid #fff;
-}
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-.nav-toggle span {
-  width: 22px;
-  height: 2px;
-  background: #fff;
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* ============================
-   HERO
-   ============================ */
-.hero {
+/* TEXT */
+.text {
   position: relative;
-  min-height: 100vh;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  height: 100vh;
   overflow: hidden;
 }
-
-.blob-field {
+.title {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  left: 7%;
+  bottom: 40%;
+  font-size: 190px;
+  font-weight: 800;
+  color: #000;
+  z-index: 2;
+  animation: popDown 1s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
 }
+body {
+  background: linear-gradient(
+#d4ffe1, white);
+  background-attachment: fixed;
+  transition: background 5.6s ease;
+  font-family: "Arial", sans-serif;
+}
+h3 {
+  font-family: "Arial", sans-serif;
+  font-size: 100px;
+  font-weight: 800;
+  color: #000;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  max-width: 900px;
+  margin: 800px auto 20px;
+  text-align: left;
+}
+h5 {
+  font-family: "Arial", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: 
+#000000;
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 60px auto 100px;
+  text-align: left;
+}
+/* objects */
 .blob {
   position: absolute;
-  filter: blur(2px);
   opacity: 0;
+  animation: blobBounce 1s ease-out forwards;
+  animation-fill-mode: forwards;
+  filter: blur(1px);
+  z-index: 1;
+}
+.blob1 {
+  width: 300px;
+  height: 240px;
+  background: 
+#bac7ff;
   border-radius: 55% 45% 60% 40%;
-  animation: blobPop 1s cubic-bezier(0.22, 1.3, 0.4, 1) forwards;
+  top: 10%;
+  left: 5%;
+  animation-delay: 0.2s;
 }
-.blob1 { width: 320px; height: 260px; background: var(--lavender); top: 8%; left: 2%; animation-delay: 0.1s; }
-.blob2 { width: 280px; height: 220px; background: var(--pink); top: 46%; right: 4%; border-radius: 40% 60% 45% 55%; animation-delay: 0.3s; }
-.blob3 { width: 220px; height: 190px; background: var(--cyan); bottom: 6%; left: 30%; border-radius: 60% 40% 55% 45%; animation-delay: 0.5s; }
-
-@keyframes blobPop {
-  0% { opacity: 0; transform: translateY(-160px) scale(0.6); }
-  55% { opacity: 0.9; transform: translateY(16px) scale(1.08); }
-  75% { transform: translateY(-8px) scale(0.97); }
-  100% { opacity: 0.85; transform: translateY(0) scale(1); }
-}
-
-.eyebrow {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-on-dark);
-  background: rgba(234, 255, 242, 0.1);
-  padding: 8px 16px;
-  border-radius: 30px;
-  margin: 0 0 28px;
-  width: fit-content;
-}
-
-.hero h1 {
-  position: relative;
-  z-index: 1;
-  font-family: var(--font-display);
-  font-size: clamp(48px, 8vw, 108px);
-  font-weight: 600;
-  line-height: 0.98;
-  letter-spacing: -0.01em;
-  margin: 0 0 28px;
-}
-
-/* Signature effect: white text set to mix-blend-mode:difference reads
-   correctly against whatever part of the gradient sits behind it,
-   inverting itself automatically as the page (and blobs) scroll beneath. */
-.blend-text {
-  color: #fff;
-  mix-blend-mode: difference;
-}
-
-.hero-sub {
-  position: relative;
-  z-index: 1;
-  font-size: 19px;
-  line-height: 1.6;
-  color: var(--ink-on-dark-soft);
-  max-width: 540px;
-  margin: 0 0 36px;
-  transition: color 0.6s ease;
-}
-
-.hero-actions {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 60px;
-}
-
-.btn {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 15px 30px;
-  border-radius: 14px;
-  border: 2px solid transparent;
-  cursor: pointer;
-  font-family: var(--font-body);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-.btn-primary {
-  background: var(--ink-on-dark);
-  color: var(--dark-1);
-}
-.btn-primary:hover,
-.btn-primary:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(234, 255, 242, 0.25);
-}
-.btn-ghost {
-  background: transparent;
-  color: inherit;
-  border-color: currentColor;
-}
-.btn-ghost:hover,
-.btn-ghost:focus-visible {
-  transform: translateY(-2px);
-  opacity: 0.8;
-}
-
-.scroll-cue {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-on-dark-soft);
-}
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: currentColor;
-  opacity: 0.5;
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { transform: scaleY(1); opacity: 0.3; }
-  50% { transform: scaleY(1.3); opacity: 0.7; }
-}
-
-/* pop-in / fade-in entrance choreography for hero text, staggered by --d */
-.pop-in {
-  opacity: 0;
-  transform: translateY(18px);
-  animation: popFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: var(--d, 0s);
-}
-@keyframes popFade {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================
-   SECTIONS
-   ============================ */
-.section {
-  position: relative;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 120px 40px;
-}
-.kicker {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-on-dark-soft);
-  margin: 0 0 18px;
-  transition: color 0.6s ease;
-}
-.section-heading,
-.intro-heading,
-.facts-heading {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(30px, 4vw, 46px);
-  line-height: 1.15;
-  margin: 0 0 20px;
-  max-width: 800px;
-}
-.intro-body {
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 640px;
-  color: var(--ink-on-dark-soft);
-  transition: color 0.6s ease;
-}
-
-/* ---------- Facts rail: cards pop up then fade as you scroll past ---------- */
-.fact-rail {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 60px;
-}
-.fact-card {
-  display: flex;
-  gap: 28px;
-  align-items: flex-start;
-  padding: 36px;
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(11, 31, 23, 0.08);
-  box-shadow: 0 20px 40px rgba(11, 31, 23, 0.06);
-  opacity: 0;
-  transform: translateY(40px) scale(0.97);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-/* Toggled by IntersectionObserver both entering AND leaving the viewport
-   band, so cards genuinely pop up and fade away as you scroll past them. */
-.fact-card.in-view {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-.fact-index {
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--mid);
-  flex-shrink: 0;
-}
-.fact-card p {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink-on-light-soft);
-}
-
-/* ---------- Cards ---------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-.card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(11, 31, 23, 0.08);
-  border-radius: var(--radius);
-  padding: 32px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(11, 31, 23, 0.1);
-}
-.card-icon {
-  font-size: 30px;
-  width: 54px;
-  height: 54px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(20, 108, 67, 0.1);
-  border-radius: 14px;
-  margin-bottom: 18px;
-}
-.card h3 {
-  font-family: var(--font-display);
-  font-size: 21px;
-  margin: 0 0 10px;
-  color: var(--ink-on-light);
-}
-.card p {
-  margin: 0;
-  line-height: 1.55;
-}
-
-/* ---------- Mascot spotlight ---------- */
-.mascot-spotlight {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 60px;
-  align-items: center;
-}
-.mascot-media {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-.mascot-glow {
-  position: absolute;
-  inset: 0;
-  margin: auto;
+.blob2 {
   width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, var(--cyan), transparent 70%);
-  opacity: 0.4;
-  filter: blur(30px);
-  border-radius: 50%;
+  height: 200px;
+  background: 
+#ffc8f5;
+  border-radius: 40% 60% 45% 55%;
+  top: 50%;
+  left: 65%;
+  animation-delay: 0.4s;
 }
-.mascot-img {
-  position: relative;
-  max-width: 260px;
-  border-radius: 50%;
-  background: #fff;
-  padding: 18px;
-  box-shadow: 0 20px 40px rgba(11, 31, 23, 0.1);
+.blob3 {
+  width: 220px;
+  height: 180px;
+  background: 
+#6ffffd;
+  border-radius: 60% 40% 55% 45%;
+  top: 70%;
+  left: 25%;
+  animation-delay: 0.6s;
 }
-.speech-bubble {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(11, 31, 23, 0.08);
-  border-radius: 16px;
-  padding: 20px 24px;
-  max-width: 480px;
-  margin: 24px 0;
+.icons {
+  display: block;
+  margin: 40px auto;
+  max-width: 300px;
+  width: 100%;
 }
-.speech-bubble p {
-  margin: 0;
-  font-style: italic;
-  color: var(--ink-on-light);
-  transition: opacity 0.2s ease;
+/* ANIMATION */
+@keyframes blobBounce {
+  0% {
+    transform: translateY(-200px) scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px) scale(1.1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10px) scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1; 
+  }
 }
-
-/* ============================
-   FOOTER — dark bookend, solid (not part of the scroll gradient)
-   ============================ */
+@keyframes popDown {
+  0% {
+    transform: translateY(-150px) scale(0.8);
+  }
+  60% {
+    transform: translateY(20px) scale(1.1);
+  }
+  80% {
+    transform: translateY(-10px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+.fade-scroll {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+/* FOOTER */
 .site-footer {
-  position: relative;
-  background: var(--dark-2);
-  color: var(--ink-on-dark);
-  padding: 90px 60px 40px;
-  font-family: var(--font-body);
+  background: 
+#f5f5f5;
+  padding: 80px 60px;
+  margin-top: 120px;
+  font-family: Arial, sans-serif;
 }
 .footer-top {
   text-align: center;
   margin-bottom: 60px;
 }
 .footer-top h2 {
-  font-family: var(--font-display);
-  font-size: 42px;
-  font-weight: 600;
+  font-size: 48px;
+  font-weight: 800;
   margin-bottom: 20px;
 }
 .footer-btn {
-  background: var(--ink-on-dark);
-  color: var(--dark-1);
+  background: #000;
+  color: #fff;
   padding: 14px 32px;
   border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 700;
+  border-radius: 6px;
+  font-size: 18px;
   cursor: pointer;
   margin-bottom: 10px;
-  transition: transform 0.2s ease, background 0.2s ease;
 }
 .footer-btn:hover {
-  background: var(--cyan);
-  transform: translateY(-2px);
+  background: #333;
 }
 .footer-columns {
   display: flex;
@@ -523,109 +199,14 @@ img {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
 }
 .footer-col h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 15px;
 }
 .footer-col p {
   margin: 6px 0;
-  color: var(--ink-on-dark-soft);
-  font-size: 15px;
-}
-.footer-fine {
-  text-align: center;
-  color: rgba(234, 255, 242, 0.45);
-  font-size: 13px;
-  margin-top: 60px;
-}
-
-/* Back to top */
-.to-top {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: none;
-  background: var(--ink-on-dark);
-  color: var(--dark-1);
-  font-size: 18px;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 90;
-  mix-blend-mode: difference;
-}
-.to-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-/* ============================
-   RESPONSIVE
-   ============================ */
-@media (max-width: 900px) {
-  .mascot-spotlight {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .mascot-text p {
-    margin-inline: auto;
-  }
-  .card-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .fact-card {
-    padding: 26px;
-  }
-}
-@media (max-width: 640px) {
-  .navbar { padding: 14px 20px; }
-  .nav-toggle { display: flex; }
-  .nav-right {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 20px;
-    flex-direction: column;
-    align-items: stretch;
-    background: var(--dark-2);
-    border-radius: 16px;
-    padding: 12px;
-    opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
-  .nav-right.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  .hero { padding: 0 20px; }
-  .section { padding: 90px 20px; }
-  .card-grid { grid-template-columns: 1fr; }
-  .footer-columns { flex-direction: column; gap: 28px; }
-  .fact-card { flex-direction: column; gap: 12px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--cyan);
-  outline-offset: 2px;
+  color: #444;
+  font-size: 16px;
 }
